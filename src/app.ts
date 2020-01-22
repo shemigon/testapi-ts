@@ -1,6 +1,5 @@
 import express from "express";
-import { parseRequest } from "./handlers";
-import { Version } from "./types/Version";
+import { parseClient } from "./handlers";
 
 const app = express();
 const port = 3000;
@@ -8,7 +7,6 @@ const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-app.post('/api/v1/parse', parseRequest(Version.v1));
-app.post('/api/v2/parse', parseRequest(Version.v2));
+app.post('/api/v:V/parse', parseClient);
 
 export const server = app.listen(port);

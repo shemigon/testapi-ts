@@ -1,4 +1,4 @@
-import { IClientData } from "./IClientData";
+import { IClientData } from "../interfaces";
 
 export class ClientData implements IClientData {
     clientId: string;
